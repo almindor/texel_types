@@ -6,7 +6,7 @@ edition = "2018"
 description = "Types for Texel ASCII art text editor"
 license = "APL-2.0"
 repository = "https://github.com/almindor/texel_types"
-keywords = ["text", "ascii", "ascii-art", "format", "games", "gamedev"]
+keywords = ["text", "ascii", "ascii-art", "format", "gamedev"]
 readme = "README.md"
 categories = ["rendering::data-formats", "multimedia::images"]
 

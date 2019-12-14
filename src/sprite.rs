@@ -316,7 +316,7 @@ impl Sprite {
                 .frames
                 .iter()
                 .map(|inner| inner.is_empty())
-                .max()
+                .min()
                 .unwrap_or_else(|| false)
     }
 

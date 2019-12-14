@@ -1,6 +1,6 @@
 [package]
 name = "texel_types"
-version = "1.0.0"
+version = "1.0.1"
 authors = ["Ales Katona <almindor@gmail.com>"]
 edition = "2018"
 description = "Types for Texel ASCII art text editor"

@@ -6,6 +6,16 @@ use serde::{Deserialize, Serialize};
 ///
 /// Current scene version == V1
 /// 
+/// ### Contents
+/// SceneV1 consists of a list of tuples each having:
+/// * Sprite
+/// * Position
+/// * bool (selected indicator) -- *DEPRECATED!*
+///
+/// #### WARNING
+/// The selected indicator boolean will get removed in V2
+/// as the only "lossy" change of the Scene format.
+/// Leaving this in SceneV1 definition was a mistake during initial refactoring.
 #[derive(Debug, Default, Clone)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct SceneV1 {

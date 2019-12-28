@@ -185,41 +185,16 @@ impl Sprite {
 
     /// Fills entire frame with color according to the `ColorMode`
     pub fn fill_color(&mut self, cm: ColorMode, color: u8) -> bool {
-        let mut changed = false;
+        let bounds = self.calculate_bounds();
 
-        for texel in self.frame_iter_mut() {
-            match cm {
-                ColorMode::Fg => {
-                    if texel.fg != color {
-                        texel.fg = color;
-                        changed = true;
-                    }
-                }
-                ColorMode::Bg => {
-                    if texel.bg != color {
-                        texel.bg = color;
-                        changed = true;
-                    }
-                }
-            }
-        }
-
-        changed
+        self.apply_color(cm, color, bounds)
     }
 
     /// Fills entire frame with given `SymbolStyle`
     pub fn fill_style(&mut self, style: SymbolStyle) -> bool {
-        let mut changed = false;
-        for texel in self.frame_iter_mut() {
-            if texel.styles.contains(style) {
-                texel.styles.remove(style);
-            } else {
-                texel.styles.insert(style);
-            }
-            changed = true;
-        }
+        let bounds = self.calculate_bounds();
 
-        changed
+        self.apply_style(style, bounds)
     }
 
     /// Applies *symbol* with *bg/fg* color combination in given `Bounds` *area*
@@ -263,19 +238,35 @@ impl Sprite {
     /// Applies *color* according to `ColorMode` in the given `Bounds` *area*
     pub fn apply_color(&mut self, cm: ColorMode, color: u8, area: Bounds) -> bool {
         let mut changed = false;
+        let mut new_texels = Vec::with_capacity(self.frames[self.index].capacity());
 
-        for t in self.frame_iter_mut().filter(|t| area.contains(t.pos)) {
-            if (cm == ColorMode::Bg && t.bg == color) || (cm == ColorMode::Fg && t.fg == color) {
-                continue;
+        for pos in area.into_iter() {
+            if let Some(texel) = self.frame_iter_mut().find(|t| t.pos == pos) {
+                match cm {
+                    ColorMode::Bg => texel.bg = color,
+                    ColorMode::Fg => texel.fg = color,
+                }
+                changed = true;
+            } else {
+                let (bg, fg) = match cm {
+                    ColorMode::Bg => (color, DEFAULT_FG_U8),
+                    ColorMode::Fg => (DEFAULT_BG_U8, color),
+                };
+                // add each missing "background" texel
+                new_texels.push(Texel {
+                    pos,
+                    fg,
+                    bg,
+                    styles: SymbolStyles::new(),
+                    symbol: ' ',
+                });
+
+                changed = true;
             }
-
-            match cm {
-                ColorMode::Bg => t.bg = color,
-                ColorMode::Fg => t.fg = color,
-            }
-
-            changed = true;
         }
+
+        // apply the new texel list
+        self.apply_texels(new_texels, Position2D::from_xy(0, 0));
 
         changed
     }

@@ -145,8 +145,11 @@ impl Bounds {
         let right_edge2 = pos.x + i32::from(dim.w);
         let left_edge2 = pos.x;
         let bottom_edge2 = pos.y;
-        
-        left_edge1 < right_edge2 && right_edge1 > left_edge2 && bottom_edge1 < top_edge2 && top_edge1 > bottom_edge2
+
+        left_edge1 < right_edge2
+            && right_edge1 > left_edge2
+            && bottom_edge1 < top_edge2
+            && top_edge1 > bottom_edge2
     }
 }
 

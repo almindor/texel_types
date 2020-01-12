@@ -48,7 +48,10 @@ impl From<SceneV1> for SceneV2 {
             objects.push((Sprite::from(obj.0), obj.1))
         }
 
-        SceneV2 { objects, bookmarks: BTreeMap::new() }
+        SceneV2 {
+            objects,
+            bookmarks: BTreeMap::new(),
+        }
     }
 }
 

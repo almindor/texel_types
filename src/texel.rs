@@ -40,7 +40,10 @@ pub fn texels_from_str(s: &str, start: Position2D) -> Texels {
     for (i, c) in s.chars().enumerate() {
         result.push(Texel {
             symbol: c,
-            pos: Position2D { x: start.x + i as i32, y: start.y },
+            pos: Position2D {
+                x: start.x + i as i32,
+                y: start.y,
+            },
             styles: SymbolStyles::new(),
             bg: DEFAULT_BG_U8,
             fg: DEFAULT_FG_U8,
@@ -50,10 +53,10 @@ pub fn texels_from_str(s: &str, start: Position2D) -> Texels {
     result
 }
 
-/// 
+///
 /// Writes given &str to Texels list starting at given position
 /// *NOTE* - does not expand the list, if EOL would be reached false it returned
-/// 
+///
 pub fn write_to_texels(s: &str, texels: &mut Texels, start_x: usize) -> bool {
     if start_x + s.len() > texels.len() {
         return false; // no expansion

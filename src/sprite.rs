@@ -1,10 +1,12 @@
-use crate::{Bounds, ColorMode, Dimension, Position2D, SymbolStyle, SymbolStyles, Texel, Texels, Which};
+use crate::{
+    Bounds, ColorMode, Dimension, Position2D, SymbolStyle, SymbolStyles, Texel, Texels, Which,
+};
 use std::fs::File;
 use std::io::Read;
 use std::path::Path;
 
 #[cfg(feature = "serde_support")]
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
 
 /// Default background color for sprites
 pub const DEFAULT_BG_U8: u8 = 16;
@@ -16,20 +18,39 @@ pub const SPRITE_MAX_BYTES: usize = u16::max_value() as usize;
 
 ///
 /// Sprite represents a 2D ASCII art picture with frame animation
-/// 
+///
 #[derive(Debug, Clone, PartialEq, Eq)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct Sprite {
+    /// List of Frame data consisting of texels
+    pub frames: Vec<Texels>,
+    /// Current Frame Index
+    pub index: usize,
+    /// Optional ID number to identify sprite in a scene
+    pub id: Option<u32>,
+    /// Optional list of labels for grouping sprites in a scene
+    pub labels: Vec<String>,
+}
+
+///
+/// Previous version of the sprite for re-import in scene only
+///
+#[derive(Debug, Clone, PartialEq, Eq)]
+#[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
+pub struct SpriteV1 {
     pub frames: Vec<Texels>,
     pub index: usize,
 }
 
-#[cfg(feature = "ecs_specs")]
-use specs::{Component, VecStorage};
-
-#[cfg(feature = "ecs_specs")]
-impl Component for Sprite {
-    type Storage = VecStorage<Self>;
+impl From<SpriteV1> for Sprite {
+    fn from(old: SpriteV1) -> Self {
+        Sprite {
+            frames: old.frames,
+            index: old.index,
+            id: None,
+            labels: Vec::new(),
+        }
+    }
 }
 
 impl Default for Sprite {
@@ -37,6 +58,8 @@ impl Default for Sprite {
         Sprite {
             frames: vec![Texels::new()],
             index: 0,
+            id: None,
+            labels: Vec::new(),
         }
     }
 }
@@ -87,6 +110,7 @@ impl Sprite {
     /// Applies given frame change according to the `which` argument
     pub fn apply_frame_change(&mut self, which: Which<usize>) -> usize {
         match which {
+            Which::All => self.index, // invalid
             Which::Next => self
                 .set_frame(self.index + 1)
                 .unwrap_or_else(|_| std::cmp::max(self.frames.len(), 1) - 1),
@@ -180,6 +204,8 @@ impl Sprite {
         Sprite {
             frames: vec![texels],
             index: 0,
+            id: None,
+            labels: Vec::new(),
         }
     }
 

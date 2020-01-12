@@ -1,4 +1,3 @@
-
 mod common;
 mod dimension;
 mod position;
@@ -12,3 +11,6 @@ pub use position::*;
 pub use scene::*;
 pub use sprite::*;
 pub use texel::*;
+
+#[cfg(feature = "ecs_specs")]
+mod ecs_specs;

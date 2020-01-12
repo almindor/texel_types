@@ -20,23 +20,10 @@ pub struct Position2D {
     pub y: i32,
 }
 
-#[cfg(feature = "ecs_specs")]
-use specs::{Component, VecStorage};
-
-#[cfg(feature = "ecs_specs")]
-impl Component for Position {
-    type Storage = VecStorage<Self>;
-}
-
-#[cfg(feature = "ecs_specs")]
-impl Component for Position2D {
-    type Storage = VecStorage<Self>;
-}
-
 ///
 /// Two dimensional boundary consisting of `Position2D` and `Dimension`
 /// Bounds can be either free standing or binding
-/// 
+///
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Bounds {
     /// Binding bounds constrain movement to their area
@@ -59,7 +46,7 @@ impl std::iter::IntoIterator for Bounds {
 
 ///
 /// Bounds iterator that returns Position2D elements contained in given area
-/// 
+///
 pub struct BoundsIntoIterator {
     bounds: Bounds,
     index: usize,
@@ -142,20 +129,36 @@ impl Bounds {
         let pos = self.position();
         let dim = self.dimension();
 
-        other.x >= pos.x && other.x < pos.x + i32::from(dim.w)
-        && other.y >= pos.y && other.y < pos.y + i32::from(dim.h)
+        other.x >= pos.x
+            && other.x < pos.x + i32::from(dim.w)
+            && other.y >= pos.y
+            && other.y < pos.y + i32::from(dim.h)
+    }
+
+    /// Calculates rectangular intersection
+    pub fn intersects(&self, pos: Position2D, dim: Dimension) -> bool {
+        let top_edge1 = self.position().y + i32::from(self.dimension().h);
+        let right_edge1 = self.position().x + i32::from(self.dimension().w);
+        let left_edge1 = self.position().x;
+        let bottom_edge1 = self.position().y;
+        let top_edge2 = pos.y + i32::from(dim.h);
+        let right_edge2 = pos.x + i32::from(dim.w);
+        let left_edge2 = pos.x;
+        let bottom_edge2 = pos.y;
+        
+        left_edge1 < right_edge2 && right_edge1 > left_edge2 && bottom_edge1 < top_edge2 && top_edge1 > bottom_edge2
     }
 }
 
 impl Default for Position {
     fn default() -> Self {
-        Position { x: 1, y: 1, z: 0 }
+        Position { x: 0, y: 0, z: 0 }
     }
 }
 
 impl Default for Position2D {
     fn default() -> Self {
-        Position2D { x: 1, y: 1 }
+        Position2D { x: 0, y: 0 }
     }
 }
 
@@ -166,6 +169,12 @@ impl std::fmt::Display for Position {
         } else {
             write!(f, "{},{}", self.x, self.y)
         }
+    }
+}
+
+impl std::fmt::Display for Position2D {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{},{}", self.x, self.y)
     }
 }
 
@@ -210,10 +219,29 @@ impl std::ops::Add<Position2D> for Position {
     }
 }
 
+impl std::ops::Add<i32> for Position {
+    type Output = Position;
+
+    fn add(self, value: i32) -> Self::Output {
+        Position {
+            x: self.x + value,
+            y: self.y + value,
+            z: self.z, // keep z
+        }
+    }
+}
+
 impl std::ops::AddAssign<Position2D> for Position {
     fn add_assign(&mut self, other: Position2D) {
         self.x += other.x;
         self.y += other.y;
+    }
+}
+
+impl std::ops::AddAssign<i32> for Position {
+    fn add_assign(&mut self, value: i32) {
+        self.x += value;
+        self.y += value;
     }
 }
 
@@ -223,7 +251,6 @@ impl std::ops::AddAssign<Position2D> for Position2D {
         self.y += other.y;
     }
 }
-
 
 impl std::ops::Sub for Position {
     type Output = Position;
@@ -270,7 +297,7 @@ impl Position {
     ///
     /// Applies given `Translation` to this `Position` with regards to the provided
     /// `Bounds` area. If `Bounds` is binding ensures position does not reach outside.
-    /// 
+    ///
     pub fn apply(&mut self, translation: Translation, bounds: Bounds) -> bool {
         match translation {
             Translation::None => {}
@@ -319,15 +346,13 @@ impl Position {
 
 impl Position2D {
     pub fn from_xy(x: i32, y: i32) -> Self {
-        Self {
-            x, y
-        }
+        Self { x, y }
     }
 
     ///
     /// Applies given `Translation` to this `Position2D` with regards to the provided
     /// `Bounds` area. If `Bounds` is binding ensures position does not reach outside.
-    /// 
+    ///
     pub fn apply(&mut self, translation: Translation, bounds: Bounds) -> bool {
         let mut pos3d = Position {
             x: self.x,
@@ -376,7 +401,7 @@ impl Position2D {
 
 ///
 /// Describes a direction
-/// 
+///
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Direction {
     Left,
@@ -387,7 +412,7 @@ pub enum Direction {
 
 ///
 /// Describes the translation operation
-/// 
+///
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Translation {
     /// None for avoiding the need for Option<>

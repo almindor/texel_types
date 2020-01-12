@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 ///
 /// Symbol styles enum
-/// 
+///
 #[derive(Debug, BigEnumSetType)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum SymbolStyle {
@@ -16,7 +16,7 @@ pub enum SymbolStyle {
 
 ///
 /// ColorMode enum for background/foreground selection
-/// 
+///
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum ColorMode {
@@ -28,10 +28,12 @@ pub enum ColorMode {
 
 ///
 /// Generic "which" selector for selections etc.
-/// 
+///
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub enum Which<P> {
+    /// All
+    All,
     /// Next selection
     Next,
     /// Previous selection

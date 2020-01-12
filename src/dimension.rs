@@ -10,14 +10,6 @@ pub struct Dimension {
     pub h: u16,
 }
 
-#[cfg(feature = "ecs_specs")]
-use specs::{Component, VecStorage};
-
-#[cfg(feature = "ecs_specs")]
-impl Component for Dimension {
-    type Storage = VecStorage<Self>;
-}
-
 impl From<(u16, u16)> for Dimension {
     fn from(source: (u16, u16)) -> Self {
         Dimension {
@@ -57,7 +49,7 @@ impl Dimension {
         usize::from(self.w * self.h)
     }
 
-    /// Calculates dimension between two 2D points
+    /// Calculates dimension between two 2D points, unit size for same point!
     pub fn for_area(top_left: Position2D, bottom_right: Position2D) -> Self {
         Dimension {
             w: (bottom_right.x - top_left.x + 1) as u16,

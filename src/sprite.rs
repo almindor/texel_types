@@ -4,6 +4,7 @@ use crate::{
 use std::fs::File;
 use std::io::Read;
 use std::path::Path;
+use std::collections::HashMap;
 
 #[cfg(feature = "serde_support")]
 use serde::{Deserialize, Serialize};
@@ -28,8 +29,8 @@ pub struct Sprite {
     pub index: usize,
     /// Optional ID number to identify sprite in a scene
     pub id: Option<u32>,
-    /// Optional list of labels for grouping sprites in a scene
-    pub labels: Vec<String>,
+    /// Optional list of labels for grouping sprites in a scene, key value pair labels
+    pub labels: HashMap<String, String>,
 }
 
 ///
@@ -48,7 +49,7 @@ impl From<SpriteV1> for Sprite {
             frames: old.frames,
             index: old.index,
             id: None,
-            labels: Vec::new(),
+            labels: HashMap::new(),
         }
     }
 }
@@ -59,7 +60,7 @@ impl Default for Sprite {
             frames: vec![Texels::new()],
             index: 0,
             id: None,
-            labels: Vec::new(),
+            labels: HashMap::new(),
         }
     }
 }
@@ -205,7 +206,7 @@ impl Sprite {
             frames: vec![texels],
             index: 0,
             id: None,
-            labels: Vec::new(),
+            labels: HashMap::new(),
         }
     }
 

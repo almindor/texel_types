@@ -1,10 +1,10 @@
 use crate::{
     Bounds, ColorMode, Dimension, Position2D, SymbolStyle, SymbolStyles, Texel, Texels, Which,
 };
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::Read;
 use std::path::Path;
-use std::collections::HashMap;
 
 #[cfg(feature = "serde_support")]
 use serde::{Deserialize, Serialize};

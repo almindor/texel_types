@@ -12,10 +12,10 @@ categories = ["rendering::data-formats", "multimedia::images"]
 
 
 [dependencies]
-big_enum_set = "0.1.5"
-serde = { version = "1.0.104", optional = true }
-serde_derive = { version = "1.0.104", optional = true }
-specs = { version = "0.15.1", optional = true }
+big_enum_set = "0.2.0"
+serde = { version = "1.0.111", optional = true }
+serde_derive = { version = "1.0.111", optional = true }
+specs = { version = "0.16.1", optional = true }
 
 [features]
 ecs_specs = ["specs"]

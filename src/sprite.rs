@@ -133,6 +133,15 @@ impl Sprite {
         Ok(self.index)
     }
 
+    /// Gives a read-only iterator over `Texel`s in given area of this Sprite
+    pub fn read_area(&self, area: Bounds) -> impl Iterator<Item = &Texel> {
+        self.frame_iter().filter(move |t| area.contains(t.pos))
+    }
+
+    pub fn read_texel(&self, pos: Position2D) -> Option<&Texel> {
+        self.read_area(Bounds::point(pos)).next()
+    }
+
     /// Copies an area of given frame in the `area: Bounds` as Vec<Texel>
     pub fn copy_area(&self, area: Bounds) -> Texels {
         let mut result = Texels::new();

@@ -80,8 +80,8 @@ impl Dimension {
         h32 += 1;
 
         Dimension {
-            w: w32.try_into().unwrap_or_else(|_| 0),
-            h: h32.try_into().unwrap_or_else(|_| 0),
+            w: w32.try_into().unwrap_or(0),
+            h: h32.try_into().unwrap_or(0),
         }
     }
 }

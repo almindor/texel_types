@@ -117,8 +117,8 @@ impl Sprite {
                 .unwrap_or_else(|_| std::cmp::max(self.frames.len(), 1) - 1),
             Which::Previous => self
                 .set_frame(std::cmp::max(self.index, 1) - 1)
-                .unwrap_or_else(|_| 0),
-            Which::At(index) => self.set_frame(index).unwrap_or_else(|_| self.index),
+                .unwrap_or(0),
+            Which::At(index) => self.set_frame(index).unwrap_or(self.index),
         }
     }
 
@@ -344,7 +344,7 @@ impl Sprite {
                 .iter()
                 .map(|inner| inner.is_empty())
                 .min()
-                .unwrap_or_else(|| false)
+                .unwrap_or(false)
     }
 
     // goes through texels so we can calculate dimension and move position if

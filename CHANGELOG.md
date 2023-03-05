@@ -1,6 +1,7 @@
 
 # Changelog
 
+* `2.0.1 -> 2.0.2` -- set MSRV to 1.59, specs upgrade to 0.18
 * `2.0.0 -> 2.0.1` -- dependency updates + clippy fixes
 * `1.0.1 -> 2.0.0` -- major changes introducing SceneV2 and leaner base types
 

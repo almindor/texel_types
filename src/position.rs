@@ -4,7 +4,7 @@ use crate::Dimension;
 use serde::{Deserialize, Serialize};
 
 /// 3D position
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct Position {
     pub x: i32,
@@ -13,7 +13,7 @@ pub struct Position {
 }
 
 /// 2D position
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 #[cfg_attr(feature = "serde_support", derive(Serialize, Deserialize))]
 pub struct Position2D {
     pub x: i32,
@@ -150,18 +150,6 @@ impl Bounds {
             && right_edge1 > left_edge2
             && bottom_edge1 < top_edge2
             && top_edge1 > bottom_edge2
-    }
-}
-
-impl Default for Position {
-    fn default() -> Self {
-        Position { x: 0, y: 0, z: 0 }
-    }
-}
-
-impl Default for Position2D {
-    fn default() -> Self {
-        Position2D { x: 0, y: 0 }
     }
 }
 

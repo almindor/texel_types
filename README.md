@@ -11,6 +11,11 @@ This crate is meant to provide serializable data types for use with programs wis
 * `serde_support` - adds [serde](https://crates.io/crates/serde) and [serde_derive](https://crates.io/crates/serde_derive) as dependencies for serialization support
 * `ecs_spec` - adds [specs](https://crates.io/crates/specs) `Component` support for all top level types for use with ECS (since both the types and traits would be foreign if used). This is **deprecated** and might get removed in future major versions.
 
+## Minimum Supported Rust Version (MSRV)
+
+This crate is guaranteed to compile on stable Rust 1.59.0 and up. It *might*
+compile with older versions but that may change in any new patch release.
+
 ## Forward Compatibility
 
 The types in this crate are meant to be forward compatible serialize-safe.

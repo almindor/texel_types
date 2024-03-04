@@ -12,10 +12,10 @@ categories = ["rendering::data-formats", "multimedia::images"]
 rust-version = "1.59"
 
 [dependencies]
-big_enum_set = "0.2"
+big_enum_set = "0.3"
 serde = { version = "1.0", optional = true }
 serde_derive = { version = "1.0", optional = true }
-specs = { version = "0.18", optional = true }
+specs = { version = "0.20", optional = true }
 
 [features]
 ecs_specs = ["specs"]

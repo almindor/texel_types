@@ -1,201 +1,105 @@
-                                 Apache License
-                           Version 2.0, January 2004
-                        http://www.apache.org/licenses/
+AiGPL - Anti-AI General Public License
+Version 1.0, March 2026
 
-   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+Copyright (C) 2026
 
-   1. Definitions.
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-      "License" shall mean the terms and conditions for use, reproduction,
-      and distribution as defined by Sections 1 through 9 of this document.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
-      "Licensor" shall mean the copyright owner or entity authorized by
-      the copyright owner that is granting the License.
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-      "Legal Entity" shall mean the union of the acting entity and all
-      other entities that control, are controlled by, or are under common
-      control with that entity. For the purposes of this definition,
-      "control" means (i) the power, direct or indirect, to cause the
-      direction or management of such entity, whether by contract or
-      otherwise, or (ii) ownership of fifty percent (50%) or more of the
-      outstanding shares, or (iii) beneficial ownership of such entity.
+---
 
-      "You" (or "Your") shall mean an individual or Legal Entity
-      exercising permissions granted by this License.
+ADDITIONAL TERMS AND CONDITIONS
 
-      "Source" form shall mean the preferred form for making modifications,
-      including but not limited to software source code, documentation
-      source, and configuration files.
+Section 0: Purpose
 
-      "Object" form shall mean any form resulting from mechanical
-      transformation or translation of a Source form, including but
-      not limited to compiled object code, generated documentation,
-      and conversions to other media types.
+This license extends the GNU Affero General Public License v3.0 with additional restrictions specifically designed to prevent the use of covered works by, or for the training, development, or improvement of, any artificial intelligence system, large language model, machine learning model, or automated agent (collectively, "AI Systems").
 
-      "Work" shall mean the work of authorship, whether in Source or
-      Object form, made available under the License, as indicated by a
-      copyright notice that is included in or attached to the work
-      (an example is provided in the Appendix below).
+Section 1: Definitions
 
-      "Derivative Works" shall mean any work, whether in Source or Object
-      form, that is based on (or derived from) the Work and for which the
-      editorial revisions, annotations, elaborations, or other modifications
-      represent, as a whole, an original work of authorship. For the purposes
-      of this License, Derivative Works shall not include works that remain
-      separable from, or merely link (or bind by name) to the interfaces of,
-      the Work and Derivative Works thereof.
+1.1 "AI System" means any software, model, algorithm, or system that uses machine learning, neural networks, deep learning, statistical inference, or any form of artificial intelligence to generate, classify, predict, or process data, including but not limited to: large language models, generative AI models, foundation models, multimodal models, reinforcement learning systems, and any derivative or descendant systems thereof.
 
-      "Contribution" shall mean any work of authorship, including
-      the original version of the Work and any modifications or additions
-      to that Work or Derivative Works thereof, that is intentionally
-      submitted to Licensor for inclusion in the Work by the copyright owner
-      or by an individual or Legal Entity authorized to submit on behalf of
-      the copyright owner. For the purposes of this definition, "submitted"
-      means any form of electronic, verbal, or written communication sent
-      to the Licensor or its representatives, including but not limited to
-      communication on electronic mailing lists, source code control systems,
-      and issue tracking systems that are managed by, or on behalf of, the
-      Licensor for the purpose of discussing and improving the Work, but
-      excluding communication that is conspicuously marked or otherwise
-      designated in writing by the copyright owner as "Not a Contribution."
+1.2 "Training Data" means any data, text, code, or material used to train, fine-tune, fine-tune, distill, evaluate, or improve any AI System.
 
-      "Contributor" shall mean Licensor and any individual or Legal Entity
-      on behalf of whom a Contribution has been received by Licensor and
-      subsequently incorporated within the Work.
+1.3 "Inference" means the process of using a trained AI System to generate outputs, make predictions, or process inputs.
 
-   2. Grant of Copyright License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      copyright license to reproduce, prepare Derivative Works of,
-      publicly display, publicly perform, sublicense, and distribute the
-      Work and such Derivative Works in Source or Object form.
+1.4 "Processed by AI" means having been generated, analyzed, modified, or transformed, in whole or in part, by an AI System.
 
-   3. Grant of Patent License. Subject to the terms and conditions of
-      this License, each Contributor hereby grants to You a perpetual,
-      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
-      (except as stated in this section) patent license to make, have made,
-      use, offer to sell, sell, import, and otherwise transfer the Work,
-      where such license applies only to those patent claims licensable
-      by such Contributor that are necessarily infringed by their
-      Contribution(s) alone or by combination of their Contribution(s)
-      with the Work to which such Contribution(s) was submitted. If You
-      institute patent litigation against any entity (including a
-      cross-claim or counterclaim in a lawsuit) alleging that the Work
-      or a Contribution incorporated within the Work constitutes direct
-      or contributory patent infringement, then any patent licenses
-      granted to You under this License for that Work shall terminate
-      as of the date such litigation is filed.
+1.5 "You" and "Licensee" means any person or entity exercising rights under this license.
 
-   4. Redistribution. You may reproduce and distribute copies of the
-      Work or Derivative Works thereof in any medium, with or without
-      modifications, and in Source or Object form, provided that You
-      meet the following conditions:
+Section 2: Prohibited Uses
 
-      (a) You must give any other recipients of the Work or
-          Derivative Works a copy of this License; and
+Unless otherwise permitted under Section 3, Licensee shall NOT:
 
-      (b) You must cause any modified files to carry prominent notices
-          stating that You changed the files; and
+2.1 Use the covered work as Training Data for any AI System.
 
-      (c) You must retain, in the Source form of any Derivative Works
-          that You distribute, all copyright, patent, trademark, and
-          attribution notices from the Source form of the Work,
-          excluding those notices that do not pertain to any part of
-          the Derivative Works; and
+2.2 Process, transform, or modify the covered work using any AI System for the purpose of creating derivative works or Training Data.
 
-      (d) If the Work includes a "NOTICE" text file as part of its
-          distribution, then any Derivative Works that You distribute must
-          include a readable copy of the attribution notices contained
-          within such NOTICE file, excluding those notices that do not
-          pertain to any part of the Derivative Works, in at least one
-          of the following places: within a NOTICE text file distributed
-          as part of the Derivative Works; within the Source form or
-          documentation, if provided along with the Derivative Works; or,
-          within a display generated by the Derivative Works, if and
-          wherever such third-party notices normally appear. The contents
-          of the NOTICE file are for informational purposes only and
-          do not modify the License. You may add Your own attribution
-          notices within Derivative Works that You distribute, alongside
-          or as an addendum to the NOTICE text from the Work, provided
-          that such additional attribution notices cannot be construed
-          as modifying the License.
+2.3 Use the covered work to develop, train, fine-tune, evaluate, or improve any AI System.
 
-      You may add Your own copyright statement to Your modifications and
-      may provide additional or different license terms and conditions
-      for use, reproduction, or distribution of Your modifications, or
-      for any such Derivative Works as a whole, provided Your use,
-      reproduction, and distribution of the Work otherwise complies with
-      the conditions stated in this License.
+2.4 Include the covered work, in whole or in part, in any dataset, corpus, or collection intended for use in training AI Systems.
 
-   5. Submission of Contributions. Unless You explicitly state otherwise,
-      any Contribution intentionally submitted for inclusion in the Work
-      by You to the Licensor shall be under the terms and conditions of
-      this License, without any additional terms or conditions.
-      Notwithstanding the above, nothing herein shall supersede or modify
-      the terms of any separate license agreement you may have executed
-      with Licensor regarding such Contributions.
+2.5 Allow, enable, or facilitate any AI System to access, read, process, or learn from the covered work.
 
-   6. Trademarks. This License does not grant permission to use the trade
-      names, trademarks, service marks, or product names of the Licensor,
-      except as required for reasonable and customary use in describing the
-      origin of the Work and reproducing the content of the NOTICE file.
+2.6 Use the covered work for Inference with any AI System, unless the AI System itself complies with the restrictions in Section 2.1 through 2.5.
 
-   7. Disclaimer of Warranty. Unless required by applicable law or
-      agreed to in writing, Licensor provides the Work (and each
-      Contributor provides its Contributions) on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-      implied, including, without limitation, any warranties or conditions
-      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
-      PARTICULAR PURPOSE. You are solely responsible for determining the
-      appropriateness of using or redistributing the Work and assume any
-      risks associated with Your exercise of permissions under this License.
+2.7 Distribute, transmit, or make available the covered work to any person or entity if the Licensee knows or should know that such person or entity intends to use the work for any purpose prohibited under this Section.
 
-   8. Limitation of Liability. In no event and under no legal theory,
-      whether in tort (including negligence), contract, or otherwise,
-      unless required by applicable law (such as deliberate and grossly
-      negligent acts) or agreed to in writing, shall any Contributor be
-      liable to You for damages, including any direct, indirect, special,
-      incidental, or consequential damages of any character arising as a
-      result of this License or out of the use or inability to use the
-      Work (including but not limited to damages for loss of goodwill,
-      work stoppage, computer failure or malfunction, or any and all
-      other commercial damages or losses), even if such Contributor
-      has been advised of the possibility of such damages.
+Section 3: Exceptions
 
-   9. Accepting Warranty or Additional Liability. While redistributing
-      the Work or Derivative Works thereof, You may choose to offer,
-      and charge a fee for, acceptance of support, warranty, indemnity,
-      or other liability obligations and/or rights consistent with this
-      License. However, in accepting such obligations, You may act only
-      on Your own behalf and on Your sole responsibility, not on behalf
-      of any other Contributor, and only if You agree to indemnify,
-      defend, and hold each Contributor harmless for any liability
-      incurred by, or claims asserted against, such Contributor by reason
-      of your accepting any such warranty or additional liability.
+3.1 The prohibitions in Section 2 do not apply to:
+   (a) Personal use of the covered work by an individual on their own device where no data is transmitted to or processed by external AI Systems.
+   (b) Use of the covered work in academic research that does not involve training, developing, or improving AI Systems and does not contribute to Training Data for AI Systems.
+   (c) Security testing and analysis of the covered work using AI-assisted tools, provided such use is limited to identifying vulnerabilities and the results are not used to train or improve AI Systems.
 
-   END OF TERMS AND CONDITIONS
+Section 4: Attribution Requirement
 
-   APPENDIX: How to apply the Apache License to your work.
+4.1 Any use of the covered work that is permitted under Section 3 must include prominent attribution to this license and to the original authors.
 
-      To apply the Apache License to your work, attach the following
-      boilerplate notice, with the fields enclosed by brackets "[]"
-      replaced with your own identifying information. (Don't include
-      the brackets!)  The text should be enclosed in the appropriate
-      comment syntax for the file format. We also recommend that a
-      file or class name and description of purpose be included on the
-      same "printed page" as the copyright notice for easier
-      identification within third-party archives.
+4.2 Licensee must include the following notice in all distributions and public disclosures of the covered work:
 
-   Copyright [yyyy] [name of copyright owner]
+"This work is licensed under the AiGPL - Anti-AI General Public License. This work may not be used for training, developing, or improving any artificial intelligence system. See the full license text for details."
 
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
+Section 5: Termination
 
-       http://www.apache.org/licenses/LICENSE-2.0
+5.1 This license and all rights granted hereunder shall immediately terminate, without notice, if Licensee engages in any violation of Section 2.
 
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
+5.2 Upon termination, Licensee must immediately cease all use of the covered work and destroy all copies in their possession or control.
+
+5.3 Termination of this license does not affect any rights or obligations that arose prior to termination, nor does it affect any rights that expressly survive termination.
+
+Section 6: No Warranty
+
+6.1 THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+Section 7: Limitation of Liability
+
+7.1 IN NO EVENT SHALL THE LICENSOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Section 8: Enforcement
+
+8.1 Licensee agrees that any violation of this license constitutes a material breach of the license agreement.
+
+8.2 Licensee shall indemnify, defend, and hold harmless the Licensor and authors from any claims, damages, or expenses arising from Licensee's violation of this license.
+
+Section 9: Compatibility with GPL
+
+9.1 This license is designed to be more restrictive than the GNU General Public License v3.0 and the GNU Affero General Public License v3.0. Where conflicts exist, the provisions of this license shall prevail.
+
+9.2 If you combine or link this work with GPL-licensed work, the combined work must be distributed under this license, and the GPL-licensed component must also comply with the restrictions in Section 2.
+
+Section 10: Miscellaneous
+
+10.1 If any provision of this license is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable.
+
+10.2 This license represents the complete agreement between the parties concerning its subject matter and supersedes all prior agreements and understandings.
+
+10.3 This license may be updated periodically. The version in effect at the time of your use governs your rights and obligations.
+
+---
+
+END OF AiGPL LICENSE TERMS
+
+For the full text of the GNU Affero General Public License, see: <https://www.gnu.org/licenses/>
